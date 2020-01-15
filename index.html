@@ -9,18 +9,24 @@
         
         <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" href="./css/style.css">
-        <script type="text/javascript" src="./js/script.js"></script>
+        <script type="text/javascript" src="./js/stopwatch.js"></script>
+        <script type="text/javascript" src="./js/progressBar.js"></script>
     </head>
 
     <body onselectstart="return false">
-        <div align="center" id="painel">
+        <div align = "center" id="painel">
             <div id="time"></div>
             <div id="centiseconds"></div>
+        </div>
+
+        <div id="bar">
+            <div id="progressBar"></div>
         </div>
 
         <script>
             function centralize(){
                 painel.style.left = Math.round(window.innerWidth / 2 - painel.offsetWidth / 2) + "px";
+                bar.style.left = Math.round(window.innerWidth / 2 - bar.offsetWidth / 2) + "px";
             }
 
             function run(){
@@ -39,15 +45,28 @@
                 stopwatch.stop();
             }
 
+            function update(){
+                progressBar.value = stopwatch.milliseconds / 1000 % 60;
+                progressBar.update();
+                requestAnimationFrame(update);
+            }
+
             const painel = document.getElementById("painel");
             const mainText = document.getElementById("time");
             const centisecondsText = document.getElementById("centiseconds");
 
+            const progressBarElement = document.getElementById("progressBar");
+            const bar = document.getElementById("bar");
+            const maxWidth = bar.offsetWidth;
+
             stopwatch.init(mainText, centisecondsText);
-            centralize();
+            progressBar.init(progressBarElement, maxWidth, 60);
 
             window.addEventListener("click", run);
             window.addEventListener("dblclick", stop);
+
+            centralize();
+            update();
         </script>
     </body>
 </html>

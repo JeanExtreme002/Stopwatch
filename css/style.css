@@ -2,20 +2,37 @@ body{
     background: rgb(0,0,0);
 }
 
+#bar{
+    border: 3px solid rgb(255,255,255);
+    top: 80%;
+}
+
 #centiseconds{
     font-size: 250%;
     left: 85%;
     top: 50%;
 }
 
+#progressBar{
+    background: rgb(255,255,255);
+}
+
+#progressBar, #bar{
+    height: 10px;
+    left: 0%;
+}
+
 #painel{
     border: 10px solid rgb(255,255,255);
     color: rgb(255,255,255);
     top: 50px;
+}
+
+#painel, #bar{
     width: 70%;
 }
 
-#painel, #centiseconds{
+#painel, #bar, #centiseconds, #progressBar{
     position: absolute;
 }
 
