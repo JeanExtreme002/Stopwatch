@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta author="Jean Loui Bernard Silva de Jesus">
+
+        <title>Stopwatch</title>
+        
+        <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <script type="text/javascript" src="./js/script.js"></script>
+    </head>
+
+    <body>
+        <div align="center" id="painel">
+            <div id="time"></div>
+            <div id="centiseconds"></div>
+        </div>
+
+        <script>
+            function centralize(){
+                painel.style.left = Math.round(window.innerWidth / 2 - painel.offsetWidth / 2) + "px";
+            }
+
+            function changeStatus(){
+
+                switch(stopwatch.status){
+                    
+                    case -1:
+                        stopwatch.run();
+                        break;
+
+                    case 1:
+                        stopwatch.pause();
+                        break;
+
+                    default:
+                        stopwatch.stop();
+                };
+            }
+
+            const painel = document.getElementById("painel");
+            const maintext = document.getElementById("time");
+            const centisecondsText = document.getElementById("centiseconds");
+
+            stopwatch.init(maintext, centisecondsText);
+            centralize();
+
+            window.addEventListener("mousedown", changeStatus);
+        </script>
+    </body>
+</html>
