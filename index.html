@@ -12,7 +12,7 @@
         <script type="text/javascript" src="./js/script.js"></script>
     </head>
 
-    <body>
+    <body onselectstart="return false">
         <div align="center" id="painel">
             <div id="time"></div>
             <div id="centiseconds"></div>
@@ -23,31 +23,31 @@
                 painel.style.left = Math.round(window.innerWidth / 2 - painel.offsetWidth / 2) + "px";
             }
 
-            function changeStatus(){
-
+            function run(){
                 switch(stopwatch.status){
                     
-                    case -1:
-                        stopwatch.run();
-                        break;
-
                     case 1:
                         stopwatch.pause();
                         break;
 
                     default:
-                        stopwatch.stop();
+                        stopwatch.run();
                 };
             }
 
+            function stop(){
+                stopwatch.stop();
+            }
+
             const painel = document.getElementById("painel");
-            const maintext = document.getElementById("time");
+            const mainText = document.getElementById("time");
             const centisecondsText = document.getElementById("centiseconds");
 
-            stopwatch.init(maintext, centisecondsText);
+            stopwatch.init(mainText, centisecondsText);
             centralize();
 
-            window.addEventListener("mousedown", changeStatus);
+            window.addEventListener("click", run);
+            window.addEventListener("dblclick", stop);
         </script>
     </body>
 </html>

@@ -2,6 +2,12 @@ body{
     background: rgb(0,0,0);
 }
 
+#centiseconds{
+    font-size: 250%;
+    left: 85%;
+    top: 50%;
+}
+
 #painel{
     border: 10px solid rgb(255,255,255);
     color: rgb(255,255,255);
@@ -9,22 +15,16 @@ body{
     width: 70%;
 }
 
+#painel, #centiseconds{
+    position: absolute;
+}
+
 #time{
     font-size: 600%;
     margin: 30px;
 }
 
-#centiseconds{
-    font-size: 250%;
-    left: 85%;
-    top: 50%;
-}
-
-#painel, #centiseconds{
-    position: absolute;
-}
-
 #time, #centiseconds{
-    font-family: Orbitron, Impact;
+    font-family: Orbitron, Impact, Arial;
     display: inline-block;
 }
