@@ -7,7 +7,7 @@ const stopwatch = {
     intervalTime: 10,
 
     init: function(mainText, centisecondsText = null){
-
+        
         this.mainText = mainText;
         this.centisecondsText = centisecondsText;
         this.reset();
@@ -35,7 +35,7 @@ const stopwatch = {
     run: function(){
 
         if (this.status == -1){
-            this.interval = setInterval(function(self){self.update();}, this.intervalTime, this);
+            this.interval = setInterval(function(self){self.update()}, this.intervalTime, this);
         }
         this.status = 1;
     },

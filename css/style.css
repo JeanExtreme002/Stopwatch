@@ -1,10 +1,17 @@
 body{
     background: rgb(0,0,0);
+    color: rgb(255,255,255);
 }
 
 #bar{
     border: 3px solid rgb(255,255,255);
-    top: 80%;
+}
+
+#button{
+    border-radius: 50%;
+    height: 150px;
+    outline: none;
+    width: 150px;
 }
 
 #centiseconds{
@@ -24,24 +31,52 @@ body{
 
 #painel{
     border: 10px solid rgb(255,255,255);
-    color: rgb(255,255,255);
+    border-radius: 25px;
     top: 50px;
 }
 
 #painel, #bar{
-    width: 70%;
+    width: 80%;
 }
 
-#painel, #bar, #centiseconds, #progressBar{
-    position: absolute;
-}
 
 #time{
-    font-size: 600%;
+    font-size: 500%;
     margin: 30px;
 }
 
 #time, #centiseconds{
     font-family: Orbitron, Impact, Arial;
     display: inline-block;
+}
+
+.square{
+    background: rgb(255,255,255);
+    border-radius: 5px;
+    height: 60px;
+    width: 60px;
+}
+
+.triangle-right{
+    border-bottom: 30px solid transparent;
+    border-left: 60px solid rgb(255,255,255);
+    border-top: 30px solid transparent;
+    height: 0px;
+    width: 0px;
+}
+
+.triangle-right, #button{
+    background: rgb(230,0,0);
+}
+
+#button:active{
+    background: rgb(200,0,0);
+}
+
+#button:active > .triangle-right{
+    background: rgb(200,0,0);
+}
+
+#painel, #bar, #button, #centiseconds, #progressBar, .square, .triangle-right{
+    position: absolute;
 }
