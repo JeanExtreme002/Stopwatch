@@ -1,10 +1,31 @@
-const stopwatch = {
+﻿const stopwatch = {
 
     milliseconds: 0,
     centisecondsText: null,
     status: -1,
     mainText: null,
     intervalTime: 10,
+
+    get time (){
+
+        // Obtém o tempo a partir dos milissegundos.
+        var cs = parseInt(this.milliseconds % 1000 / 10);
+        var sec = parseInt(this.milliseconds / 1000 % 60);
+        var min = parseInt(this.milliseconds / (1000 * 60) % 60);
+        var hour = parseInt(this.milliseconds / (1000 * 60 * 60));
+
+        // Formata os centésimos de segundos.
+        if(cs < 10){
+            cs = "0" + cs;
+        }
+
+        // Formata os segundos, minutos e horas.
+        sec = sec < 10 ? "0" + sec : sec;
+        min = min < 10 ? "0" + min : min;
+        hour = hour < 10 ? "0" + hour : hour;
+
+        return {hour: hour, min: min, sec: sec, cs: cs};
+    },
 
     init: function(mainText, centisecondsText = null){
         
@@ -49,7 +70,7 @@ const stopwatch = {
     update: function(){
 
         // Obtém o tempo cronometrdo.
-        let {hour, min, sec, cs} = this.time;
+        var {hour, min, sec, cs} = this.time;
 
         // Caso status seja 1, será mostrado o tempo atual e a 
         // variável que conta os milissegundos será incrementada.
@@ -80,27 +101,5 @@ const stopwatch = {
             }
             this.turns += this.intervalTime;
         }
-    },
-
-    get time (){
-
-        // Obtém o tempo a partir dos milissegundos.
-        cs = parseInt(this.milliseconds % 1000 / 10);
-        sec = parseInt(this.milliseconds / 1000 % 60);
-        min = parseInt(this.milliseconds / (1000 * 60) % 60);
-        hour = parseInt(this.milliseconds / (1000 * 60 * 60));
-
-        // Formata os centésimos de segundos.
-        if(cs < 10){
-            cs = "0" + cs;
-        }
-
-        // Formata os segundos, minutos e horas.
-        sec = sec < 10 ? "0" + sec : sec;
-        min = min < 10 ? "0" + min : min;
-        hour = hour < 10 ? "0" + hour : hour;
-
-        return {hour: hour, min: min, sec: sec, cs: cs};
     }
-
 }
