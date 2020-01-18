@@ -69,7 +69,7 @@
 
     update: function(){
 
-        // Obtém o tempo cronometrdo.
+        // Obtém o tempo cronometrado.
         var {hour, min, sec, cs} = this.time;
 
         // Caso status seja 1, será mostrado o tempo atual e a 
