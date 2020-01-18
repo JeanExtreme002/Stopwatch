@@ -1,6 +1,6 @@
 function adjustPosition(){
     
-    // Método para alinhar ajustar a posição do elementos principais da página.
+    // Método para ajustar a posição dos elementos principais da página.
     
     painel.style.left = window.innerWidth / 2 - painel.offsetWidth / 2 + "px";
     button.style.left = window.innerWidth /2 - button.offsetWidth / 2 + "px";
